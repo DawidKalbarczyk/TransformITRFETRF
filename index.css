@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background-color: rgb(96, 64, 64);
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#select-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    margin-top: 20px;
+}
+#select-button-container button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(20, 83, 142);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#select-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    margin-top: 20px;
+}
+
+#legend-from, #legend-to {
+    font-size: 16px;
+    color: white;
+    margin: 0 10px;
+}
+
+#from, #to {
+    margin: 0 10px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: gray;
+}
