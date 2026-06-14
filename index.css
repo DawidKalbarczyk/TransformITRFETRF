@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     background: url('images_resized/milky-way-galaxy-dark-night-sky.jpg') no-repeat center center;
+    position: fixed;
 }
 #header-div {
     display: flex;
@@ -129,27 +130,30 @@ body {
 
 #second-step-div {
     opacity: 0;
-    transition: opacity 2s ease;
     height: 70vh;
     width: 50vw;
+    display: flex;
     align-items: center;
     justify-content: center;
     justify-self: center;
     position: absolute;
-    top: 50%;
-    left: 60%;
+    left: 30%;
+    transition: left 1s ease, opacity 2s ease;
+    pointer-events: none;
 }
 
 #content-div {
-    transition: transform 1s ease;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1s ease, opacity 1s ease;
 }
 
 .first-step-div-transformed {
-    transform: translateX(-300px);
+    transform: translateX(-40%);
 }
 
 
-#next-button {
+#next-button, #calculate-button{
     margin: 0 10px;
     padding: 24px 40px;
     font-size: 48px;
@@ -161,4 +165,95 @@ body {
     border: 2px solid black;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     transition: background-color 0.3s ease;
+}
+
+#next-button:hover, #calculate-button:hover {
+    background-color: rgb(30, 100, 170);
+}
+
+#main-div {
+    position: relative;
+}
+
+#third-step-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    position: absolute;
+    pointer-events: none;
+    left: 10%;
+    top: -5%;
+    transition: transform 0.85s ease, opacity 2s ease;
+}
+
+.third-step-div-to-trans {
+    opacity: 0;
+    transform: translateX(300%);
+}
+.third-step-div-transformed {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#textfield {
+    pointer-events: auto;
+    width: 500px;
+    height: 400px;
+    border-radius: 0 0 15px 15px;
+}
+
+.text-area {
+    font-size: 48px;
+    margin-bottom: 0px;
+    color: white;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#instructions-container {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: white;
+    border-radius: 15px 15px 0 0;
+}
+#instructions-container p {
+    margin: 2px 0;
+}
+
+.instructions {
+    font-family: 'Times New Roman', serif;
+}
+
+#fourth-step-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    position: absolute;
+    pointer-events: none;
+    left: 115%;
+    top: 40%;
+    transition: transform 0.85s ease-out, opacity 2s ease;
+    pointer-events: none;
+}
+
+.fourth-step-div-to-trans {
+    opacity: 0;
+    transform: translateX(500%);
+}
+.fourth-step-div-transformed {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#calculate-button {
+    pointer-events: auto;
+    cursor: pointer;
+
 }
