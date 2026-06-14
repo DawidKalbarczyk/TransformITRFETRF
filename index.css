@@ -9,7 +9,7 @@ body {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    background: url('images_resized/starry-night-sky-deep-space-background.jpg') no-repeat center center;
+    background: url('images_resized/milky-way-galaxy-dark-night-sky.jpg') no-repeat center center;
 }
 #header-div {
     display: flex;
