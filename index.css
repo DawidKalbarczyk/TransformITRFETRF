@@ -1,13 +1,31 @@
 body {
     margin: 0;
+    overflow: hidden;
     padding: 0;
     font-family: 'Georgia', serif;
-    background-color: rgb(96, 64, 64);
+    background-color: rgba(96, 64, 64, 0.9);
     align-items: center;
     justify-content: center;
     justify-self: center;
     display: flex;
     flex-direction: column;
+    background: url('images_resized/starry-night-sky-deep-space-background.jpg') no-repeat center center;
+}
+#header-div {
+    display: flex;
+    height: 20vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    
+}
+
+#page-title {
+    font-size: 48px;
+    color: white;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 #select-button-container {
@@ -21,31 +39,126 @@ body {
 #select-button-container button {
     margin: 0 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 32px;
     background-color: rgb(20, 83, 142);
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s ease;
+    
+}
+#select-button-container button:hover {
+    background-color: rgb(30, 100, 170);
 }
 
-#select-container {
-    display: flex;
+#select-container-itrf, #select-container-etrf {
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    justify-self: center;
+    align-items: start;
+    justify-content: start;
+    justify-self: start;
     margin-top: 20px;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.fieldset-container-1, .fieldset-container-2 {
+    padding: 20px;
+    border: 2px 1px 2px 2px solid black;
+    
+}
+.fieldset-container-1 {
+    background-color: white;
+}
+.fieldset-container-2 {
+    background-color: rgb(30, 100, 170);
 }
 
 #legend-from, #legend-to {
     font-size: 16px;
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0 10px;
 }
+#legend-to {
+    color: white;
+}
 
-#from, #to {
-    margin: 0 10px;
-    padding: 5px;
+.from, .to {
+    margin: 0 0px;
     font-size: 16px;
-    background-color: gray;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+}
+.to {
+    background-color: rgb(30, 100, 170);
+}
+
+.from div {
+    border: 1px solid black;
+    padding: 8px 12px;
+}
+.to div {
+    background-color: rgb(30, 100, 170);
+    color: white;
+    border: 1px solid black;
+    padding: 8px 12px;
+}
+
+.from div, .to div {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.from div:hover, .to div:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.selected_itrf, .selected_etrf {
+    background-color: rgba(245, 54, 143, 0.6) !important;
+}
+
+
+#main-div {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#second-step-div {
+    opacity: 0;
+    transition: opacity 2s ease;
+    height: 70vh;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+}
+
+#content-div {
+    transition: transform 1s ease;
+}
+
+.first-step-div-transformed {
+    transform: translateX(-300px);
+}
+
+
+#next-button {
+    margin: 0 10px;
+    padding: 24px 40px;
+    font-size: 48px;
+    background-color: rgb(20, 83, 142);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s ease;
 }

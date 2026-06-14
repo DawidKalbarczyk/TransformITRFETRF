@@ -7,29 +7,46 @@
     <title>ITRF to ETRF Transformator</title>
 </head>
 <body>
-    <h1>ITRF to ETRF Transformator</h1>
-    <div id = 'content-div'>
-        <div id = 'select-button-container'>
-        <button id = 'itrf-to-etrf-button'>ITRF to ETRF</button>
-        <button id = 'etrf-to-itrf-button'>ETRF to ITRF</button>
-        </div>
+    <div id = 'header-div'>
+        <h1 id = 'page-title'>ITRF to ETRF Transformator</h1>
+    </div>
+    <div id = 'main-div'>
+        <div id = 'content-div'>
+            <div id = 'select-button-container'>
+            <button id = 'itrf-to-etrf-button'>ITRF to ETRF</button>
+            <button id = 'etrf-to-itrf-button'>ETRF to ITRF</button>
+            </div>
 
-        <div id = 'select-container'>
-            <fieldset id = 'from'>
-                <legend id = 'legend-from'>Select starting reference frame</legend>
-                <div>ITRF</div>
-            </fieldset>
-            <fieldset id = 'to'>
-                <legend id = 'legend-to'>Select output reference frame</legend>
-                <div>Hey</div>
-            </fieldset>
+            <div id = 'select-container-itrf'>
+                <div class='fieldset-container-1'>
+                    <fieldset class = 'from' id = 'fieldset_ITRF_1'></fieldset>
+                </div>
+                <div class='fieldset-container-2'>
+                    <fieldset class = 'to' id = 'fieldset_ETRF_1'></fieldset>
+                </div>
+                
+            </div>
+            <div id = 'select-container-etrf'>
+                <div class="fieldset-container-1">
+                    <fieldset class = 'from' id = 'fieldset_ETRF_2'></fieldset>
+                </div>
+                <div class="fieldset-container-2">
+                    <fieldset class = 'to' id = 'fieldset_ITRF_2'></fieldset>
+                </div>
+                
+            </div>
+        </div>
+        <div id = 'second-step-div'>
+            <button id="next-button">NEXT</button>
         </div>
     </div>
+    
     
     
     <script type="text/javascript">
         
         console.log("Hello, World!");
     </script>
+    <script type='module' src="index.js"></script>
 </body>
 </html>
