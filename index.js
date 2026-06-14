@@ -1,22 +1,51 @@
 import {names_ITRF, names_ETRF, renderDivs} from './modules/renderDivs.js';
 import {selected_itrfs, selected_etrfs} from './modules/renderDivs.js';
-const ITRF_fieldset = document.getElementById('select-container-itrf');
-const ETRF_fieldset = document.getElementById('select-container-etrf');
-const first_step_div = document.getElementById('content-div');
-const second_step_div = document.getElementById('second-step-div');
-const next_button = document.getElementById('next-button');
-const third_step_div = document.getElementById('third-step-div');
-const content = document.getElementById('textfield');
-const calculate_button = document.getElementById('calculate-button');
-const fourth_step_div = document.getElementById('fourth-step-div');
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.getElementById(selector);
+const ITRF_fieldset = $$('select-container-itrf');
+const ETRF_fieldset = $$('select-container-etrf');
+const first_step_div = $$('content-div');
+const second_step_div = $$('second-step-div');
+const next_button = $$('next-button');
+const third_step_div = $$('third-step-div');
+const content = $$('textfield');
+const calculate_button = $$('calculate-button');
+const fourth_step_div = $$('fourth-step-div');
 
-document.getElementById('itrf-to-etrf-button').addEventListener('click', function() {
+$$('guide-div').addEventListener('click', async function() {
+    if (!document.getElementById('guide-window')) {
+        const guide_window = document.createElement('div');
+        guide_window.id = 'guide-window';
+        guide_window.style.opacity = '0';
+        guide_window.innerHTML = `
+            <img id="guide-close-icon" src="images/close-icon.png" alt="Close">
+            <h2>How to use this tool?</h2>
+            <ul>
+                <li>First, select the type of transformation you want to perform: ITRF to ETRF or ETRF to ITRF.</li>
+                <li>Then, choose the specific reference frames for both the starting and output frames by clicking on the respective options.</li>
+                <li>After making your selections, click the "Next" button to proceed to the next step.</li>
+                <li>In the next step, you need to paste the input data for the transformation with specific format as follows: Point_ID;X;Y;Z.</li>
+            </ul>
+        `;
+        document.body.appendChild(guide_window);
+        await new Promise(resolve => setTimeout(resolve, 1));
+        guide_window.style.opacity = '1';
+
+        $$('guide-close-icon').addEventListener('click', async function() {
+            guide_window.style.opacity = '0';
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            document.body.removeChild(guide_window);
+        });
+    }
+});
+
+$$('itrf-to-etrf-button').addEventListener('click', function() {
     ITRF_fieldset.style.display = 'flex';
     ITRF_fieldset.style.opacity = '1';
     ETRF_fieldset.style.display = 'none';
     ETRF_fieldset.style.opacity = '0';
-    renderDivs(document.getElementById('fieldset_ITRF_1'), names_ITRF, 'legend-from');
-    renderDivs(document.getElementById('fieldset_ETRF_1'), names_ETRF, 'legend-to');
+    renderDivs($$('fieldset_ITRF_1'), names_ITRF, 'legend-from');
+    renderDivs($$('fieldset_ETRF_1'), names_ETRF, 'legend-to');
     second_step_div.style.opacity = '1';
     if (!first_step_div.classList.contains('first-step-div-transformed')) {
         first_step_div.classList.add('first-step-div-transformed');
@@ -24,13 +53,13 @@ document.getElementById('itrf-to-etrf-button').addEventListener('click', functio
     next_button.style.pointerEvents = 'auto';
 });
 
-document.getElementById('etrf-to-itrf-button').addEventListener('click', function() {
+$$('etrf-to-itrf-button').addEventListener('click', function() {
     ETRF_fieldset.style.display = 'flex';
     ETRF_fieldset.style.opacity = '1';
     ITRF_fieldset.style.display = 'none';
     ITRF_fieldset.style.opacity = '0';
-    renderDivs(document.getElementById('fieldset_ETRF_2'), names_ETRF, 'legend-from');
-    renderDivs(document.getElementById('fieldset_ITRF_2'), names_ITRF, 'legend-to');
+    renderDivs($$('fieldset_ETRF_2'), names_ETRF, 'legend-from');
+    renderDivs($$('fieldset_ITRF_2'), names_ITRF, 'legend-to');
     second_step_div.style.opacity = '1';
     if (!first_step_div.classList.contains('first-step-div-transformed')) {
         first_step_div.classList.add('first-step-div-transformed');
@@ -40,8 +69,8 @@ document.getElementById('etrf-to-itrf-button').addEventListener('click', functio
 
 
 next_button.addEventListener('click', async function() {
-    const s_itrf = document.querySelector('.selected_itrf');
-    const s_etrf = document.querySelector('.selected_etrf');
+    const s_itrf = $('.selected_itrf');
+    const s_etrf = $('.selected_etrf');
     
     if (s_itrf && s_etrf) {
         if (this.textContent === 'Next') {
